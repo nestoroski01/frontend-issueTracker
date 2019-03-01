@@ -1,0 +1,9 @@
+table {
+    width: 100%;
+}
+.mat-row-right-align {
+    text-align: center;
+}
+.example-margin {
+    margin: 0 10px;
+}

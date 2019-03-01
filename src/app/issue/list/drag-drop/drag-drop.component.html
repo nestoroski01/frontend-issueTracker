@@ -1,0 +1,41 @@
+<div cdkDropListGroup>
+    <div class="example-container">
+      <h2>Open Issues</h2>
+  
+      <div
+        cdkDropList
+        [cdkDropListData]="groupIssues['0']"
+        class="example-list"
+        (cdkDropListDropped)="drop($event)">
+        <!-- <div class="example-box" *ngFor="let item of groupIssues['0']" cdkDrag>{{item.title}}</div> -->
+        <app-issue-card *ngFor="let item of groupIssues['0']" [issue]="item" cdkDrag></app-issue-card>
+      </div>
+    </div>
+  
+    <div class="example-container">
+      <h2>In Progress</h2>
+  
+      <div
+        cdkDropList
+        [cdkDropListData]="groupIssues['1']"
+        class="example-list"
+        (cdkDropListDropped)="drop($event)">
+        <!-- <div class="example-box" *ngFor="let item of groupIssues['1']" cdkDrag>{{item.title}}</div> -->
+        <app-issue-card *ngFor="let item of groupIssues['1']" [issue]="item" cdkDrag></app-issue-card>
+      </div>
+    </div>
+
+    <div class="example-container">
+      <h2>Done</h2>
+  
+      <div
+        cdkDropList
+        [cdkDropListData]="groupIssues['2']"
+        class="example-list"
+        (cdkDropListDropped)="drop($event)">
+        <!-- <div class="example-box" *ngFor="let item of groupIssues['2']" cdkDrag>{{item.title}}</div> -->
+        <app-issue-card *ngFor="let item of groupIssues['2']" [issue]="item" cdkDrag></app-issue-card>
+      </div>
+    </div>
+  </div>
+  

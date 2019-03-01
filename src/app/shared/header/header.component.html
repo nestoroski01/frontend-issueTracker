@@ -1,0 +1,9 @@
+<div class="header">
+  <a>JIRA Clone</a>
+  <div *ngIf="user" class="header-profile">
+    <a>{{user.firstName}} {{user.lastName}}</a>
+  </div>
+  <div *ngIf="!user" class="header-profile">
+    <a routerLink="/login">Please Login</a>
+  </div>
+</div>

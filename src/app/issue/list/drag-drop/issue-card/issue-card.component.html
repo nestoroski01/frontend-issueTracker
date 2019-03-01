@@ -1,0 +1,17 @@
+<mat-card class="card">
+  <div class="side-track" [ngClass]="severityColorConditions">&nbsp;</div>
+  <mat-card-header>
+    <span class="issue-responsible">{{issue.responsibleDetails.firstName}} {{issue.responsibleDetails.lastName}}</span>
+    <img src="https://kaskadx.com/image/catalog/stati/voditel2.png">
+
+    <div class="main-text">
+      {{issue.title}}
+    </div>
+
+    <div class="footer">
+      <span class="severity" [ngClass]="severityColorConditions">{{severityType[issue.severity]}}</span>
+      <!-- TODO: implement date. Also the coloring of the severity -->
+      <span class="date">21/02/2018</span>
+    </div>
+  </mat-card-header>
+</mat-card>

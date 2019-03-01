@@ -1,0 +1,35 @@
+<div>
+  <mat-card>
+    <button mat-raised-button color="primary" routerLink="/create">Create new issue</button>
+    <br>
+    <br>
+    <mat-divider></mat-divider>
+    <form [formGroup]="filterForm">
+      <mat-form-field class="example-margin">
+        <mat-select placeholder="Severity" (selectionChange)="filterIssues()" formControlName="severityFilter">
+          <mat-option value=0>Low</mat-option>
+          <mat-option value=1>Medium</mat-option>
+          <mat-option value=2>High</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field class="example-margin">
+        <mat-select placeholder="Status" (selectionChange)="filterIssues()" formControlName="statusFilter">
+          <mat-option value=0>Open</mat-option>
+          <mat-option value=1>In Progress</mat-option>
+          <mat-option value=2>Closed</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <button mat-stroked-button color="accent" class="example-margin" (click)="resetFilters()">Reset Filters</button>
+    </form>
+    <mat-divider></mat-divider>
+    <app-table *ngIf="issues"
+               [issuesData]="issues"
+               [filteredValues]="filteredValues"
+               (deleteIssueEvent)="deleteIssue($event)"
+               (navigateToEditEvent)="navigateToEditComponent($event)"></app-table>
+    <app-drag-drop *ngIf="issues" [issuesData]="issues"></app-drag-drop>
+  </mat-card>
+
+</div>

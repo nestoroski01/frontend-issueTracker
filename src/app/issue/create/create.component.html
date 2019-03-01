@@ -1,0 +1,40 @@
+<div>
+  <mat-card>
+    <section class="mat-typography">
+      <h3>Create a new issue</h3>
+    </section>
+    <mat-divider></mat-divider>
+    <form [formGroup]="createForm" class="create-form">
+      <mat-form-field class="field-full-width">
+        <input matInput placeholder="Issue title" formControlName="title">
+      </mat-form-field>
+
+      <mat-form-field style="margin-right: 10px">
+        <mat-select placeholder="Responsible" formControlName="responsible">
+          <mat-option *ngFor="let user of allUsers" [value]="user._id">{{user.firstName}} {{user.lastName}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field style="margin-right: 10px">
+        <mat-select placeholder="Severity" formControlName="severity">
+          <mat-option [value]="severityType.Low">Low</mat-option>
+          <mat-option [value]="severityType.Medium">Medium</mat-option>
+          <mat-option [value]="severityType.High">High</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field *ngIf="updating">
+        <mat-select placeholder="Status" formControlName="status">
+          <mat-option [value]="statusType.Open">Open</mat-option>
+          <mat-option [value]="statusType.InProgress">In Progress</mat-option>
+          <mat-option [value]="statusType.Closed">Closed</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-divider></mat-divider>
+      <br>
+      <br>
+      <button mat-raised-button color="accent" routerLink="/list">Back</button>
+      <button mat-raised-button color="primary" *ngIf="!updating" (click)="addIssue()" [disabled]="!createForm.valid">Create</button>
+      <button mat-raised-button color="primary" *ngIf="updating" (click)="updateIssue()" [disabled]="!createForm.valid">Update</button>
+    </form>
+  </mat-card>
+</div>

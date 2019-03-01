@@ -1,0 +1,22 @@
+<div class="container">
+  <mat-card class="card-form">
+    <mat-card-title>Login</mat-card-title>
+    <mat-card-subtitle>To track the issues</mat-card-subtitle>
+    <form [formGroup]="loginForm">
+      <mat-card-content>
+        <mat-form-field class="full-width">
+          <input type="text" matInput placeholder="Email" formControlName="email">
+          <mat-hint>{{emailValidationMessage}}</mat-hint>
+        </mat-form-field>
+        <mat-form-field class="full-width">
+          <input type="password" matInput placeholder="Password" formControlName="password">
+          <mat-hint>{{passwordValidationMessage}}</mat-hint>          
+        </mat-form-field>
+        <button mat-raised-button color="primary" class="full-width" [disabled]="!loginForm.valid" (click)="login()">Login</button>
+      </mat-card-content>
+      <mat-card-actions>
+        <a class="register" [routerLink]="['/register']">Sign up for an account</a>
+      </mat-card-actions>
+    </form>
+  </mat-card>
+</div>
